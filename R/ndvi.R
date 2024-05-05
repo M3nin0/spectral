@@ -30,12 +30,15 @@ ndvi <- function(red, nir) {
 #' @noRd
 #' @export
 ndvi.default <- function(red, nir) {
-  .ndvi(red, nir)
+  ndvi_op(red, nir)
 }
 
 #' @noRd
 #' @export
 ndvi.SpatRaster <- function(red, nir) {
   .raster_from_template(template = red,
-                        values = .ndvi(terra::values(red), terra::values(nir)))
+                        values = ndvi_op(
+                          terra::values(red),
+                          terra::values(nir)
+                        ))
 }

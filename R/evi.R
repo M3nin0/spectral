@@ -30,12 +30,15 @@ evi2 <- function(red, nir) {
 #' @noRd
 #' @export
 evi2.default <- function(red, nir) {
-  .evi2(red, nir)
+  evi2_op(red, nir)
 }
 
 #' @noRd
 #' @export
 evi2.SpatRaster <- function(red, nir) {
   .raster_from_template(template = red,
-                        values = .evi2(terra::values(red), terra::values(nir)))
+                        values = evi2_op(
+                          terra::values(red),
+                          terra::values(nir)
+                        ))
 }

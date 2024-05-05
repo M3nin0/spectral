@@ -30,12 +30,15 @@ ndwi2 <- function(green, nir) {
 #' @noRd
 #' @export
 ndwi2.default <- function(green, nir) {
-  .ndwi2(green , nir)
+  ndwi2_op(green , nir)
 }
 
 #' @noRd
 #' @export
 ndwi2.SpatRaster <- function(green, nir) {
   .raster_from_template(template = green,
-                        values = .ndwi2(terra::values(green), terra::values(nir)))
+                        values = ndwi2_op(
+                          terra::values(green),
+                          terra::values(nir)
+                        ))
 }

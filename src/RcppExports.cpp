@@ -10,60 +10,60 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// ndvi
-NumericVector ndvi(NumericVector& red, NumericVector& nir);
-RcppExport SEXP _spectral_ndvi(SEXP redSEXP, SEXP nirSEXP) {
+// ndvi_op
+NumericVector ndvi_op(NumericVector& red, NumericVector& nir);
+RcppExport SEXP _spectral_ndvi_op(SEXP redSEXP, SEXP nirSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector& >::type red(redSEXP);
     Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
-    rcpp_result_gen = Rcpp::wrap(ndvi(red, nir));
+    rcpp_result_gen = Rcpp::wrap(ndvi_op(red, nir));
     return rcpp_result_gen;
 END_RCPP
 }
-// evi2
-NumericVector evi2(NumericVector& red, NumericVector& nir);
-RcppExport SEXP _spectral_evi2(SEXP redSEXP, SEXP nirSEXP) {
+// evi2_op
+NumericVector evi2_op(NumericVector& red, NumericVector& nir);
+RcppExport SEXP _spectral_evi2_op(SEXP redSEXP, SEXP nirSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector& >::type red(redSEXP);
     Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
-    rcpp_result_gen = Rcpp::wrap(evi2(red, nir));
+    rcpp_result_gen = Rcpp::wrap(evi2_op(red, nir));
     return rcpp_result_gen;
 END_RCPP
 }
-// ndwi2
-NumericVector ndwi2(NumericVector& green, NumericVector& nir);
-RcppExport SEXP _spectral_ndwi2(SEXP greenSEXP, SEXP nirSEXP) {
+// ndwi2_op
+NumericVector ndwi2_op(NumericVector& green, NumericVector& nir);
+RcppExport SEXP _spectral_ndwi2_op(SEXP greenSEXP, SEXP nirSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector& >::type green(greenSEXP);
     Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
-    rcpp_result_gen = Rcpp::wrap(ndwi2(green, nir));
+    rcpp_result_gen = Rcpp::wrap(ndwi2_op(green, nir));
     return rcpp_result_gen;
 END_RCPP
 }
-// bndvi
-NumericVector bndvi(NumericVector& blue, NumericVector& nir);
-RcppExport SEXP _spectral_bndvi(SEXP blueSEXP, SEXP nirSEXP) {
+// bndvi_op
+NumericVector bndvi_op(NumericVector& blue, NumericVector& nir);
+RcppExport SEXP _spectral_bndvi_op(SEXP blueSEXP, SEXP nirSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector& >::type blue(blueSEXP);
     Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
-    rcpp_result_gen = Rcpp::wrap(bndvi(blue, nir));
+    rcpp_result_gen = Rcpp::wrap(bndvi_op(blue, nir));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_spectral_ndvi", (DL_FUNC) &_spectral_ndvi, 2},
-    {"_spectral_evi2", (DL_FUNC) &_spectral_evi2, 2},
-    {"_spectral_ndwi2", (DL_FUNC) &_spectral_ndwi2, 2},
-    {"_spectral_bndvi", (DL_FUNC) &_spectral_bndvi, 2},
+    {"_spectral_ndvi_op", (DL_FUNC) &_spectral_ndvi_op, 2},
+    {"_spectral_evi2_op", (DL_FUNC) &_spectral_evi2_op, 2},
+    {"_spectral_ndwi2_op", (DL_FUNC) &_spectral_ndwi2_op, 2},
+    {"_spectral_bndvi_op", (DL_FUNC) &_spectral_bndvi_op, 2},
     {NULL, NULL, 0}
 };
 

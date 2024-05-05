@@ -30,12 +30,15 @@ bndvi <- function(blue, nir) {
 #' @noRd
 #' @export
 bndvi.default <- function(blue, nir) {
-  .bndvi(blue, nir)
+  bndvi_op(blue, nir)
 }
 
 #' @noRd
 #' @export
 bndvi.SpatRaster <- function(blue, nir) {
   .raster_from_template(template = blue,
-                        values = .bndvi(terra::values(blue), terra::values(nir)))
+                        values = bndvi_op(
+                          terra::values(blue),
+                          terra::values(nir)
+                        ))
 }
