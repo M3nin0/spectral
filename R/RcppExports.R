@@ -9,11 +9,15 @@ evi2_op <- function(red, nir) {
     .Call(`_spectral_evi2_op`, red, nir)
 }
 
-ndwi2_op <- function(green, nir) {
-    .Call(`_spectral_ndwi2_op`, green, nir)
-}
-
 bndvi_op <- function(blue, nir) {
     .Call(`_spectral_bndvi_op`, blue, nir)
+}
+
+ari_op <- function(green, red_edge_1) {
+    .Call(`_spectral_ari_op`, green, red_edge_1)
+}
+
+ndwi_op <- function(green, nir) {
+    .Call(`_spectral_ndwi_op`, green, nir)
 }
 

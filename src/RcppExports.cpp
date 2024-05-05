@@ -34,18 +34,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// ndwi2_op
-NumericVector ndwi2_op(NumericVector& green, NumericVector& nir);
-RcppExport SEXP _spectral_ndwi2_op(SEXP greenSEXP, SEXP nirSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector& >::type green(greenSEXP);
-    Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
-    rcpp_result_gen = Rcpp::wrap(ndwi2_op(green, nir));
-    return rcpp_result_gen;
-END_RCPP
-}
 // bndvi_op
 NumericVector bndvi_op(NumericVector& blue, NumericVector& nir);
 RcppExport SEXP _spectral_bndvi_op(SEXP blueSEXP, SEXP nirSEXP) {
@@ -58,12 +46,37 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// ari_op
+NumericVector ari_op(NumericVector& green, NumericVector& red_edge_1);
+RcppExport SEXP _spectral_ari_op(SEXP greenSEXP, SEXP red_edge_1SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type green(greenSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type red_edge_1(red_edge_1SEXP);
+    rcpp_result_gen = Rcpp::wrap(ari_op(green, red_edge_1));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ndwi_op
+NumericVector ndwi_op(NumericVector& green, NumericVector& nir);
+RcppExport SEXP _spectral_ndwi_op(SEXP greenSEXP, SEXP nirSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type green(greenSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
+    rcpp_result_gen = Rcpp::wrap(ndwi_op(green, nir));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_spectral_ndvi_op", (DL_FUNC) &_spectral_ndvi_op, 2},
     {"_spectral_evi2_op", (DL_FUNC) &_spectral_evi2_op, 2},
-    {"_spectral_ndwi2_op", (DL_FUNC) &_spectral_ndwi2_op, 2},
     {"_spectral_bndvi_op", (DL_FUNC) &_spectral_bndvi_op, 2},
+    {"_spectral_ari_op", (DL_FUNC) &_spectral_ari_op, 2},
+    {"_spectral_ndwi_op", (DL_FUNC) &_spectral_ndwi_op, 2},
     {NULL, NULL, 0}
 };
 

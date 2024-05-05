@@ -1,6 +1,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
 // [[Rcpp::export]]
 NumericVector ndvi_op(NumericVector& red, NumericVector& nir) {
   return (nir - red) / (nir + red);
@@ -14,12 +15,12 @@ NumericVector evi2_op(NumericVector& red, NumericVector& nir) {
 
 
 // [[Rcpp::export]]
-NumericVector ndwi2_op(NumericVector& green, NumericVector& nir) {
-  return (green - nir) / (green + nir);
+NumericVector bndvi_op(NumericVector& blue, NumericVector& nir) {
+  return (nir - blue) / (nir + blue);
 }
 
 
 // [[Rcpp::export]]
-NumericVector bndvi_op(NumericVector& blue, NumericVector& nir) {
-  return (nir - blue) / (nir + blue);
+NumericVector ari_op(NumericVector& green, NumericVector& red_edge_1) {
+  return (1 / green) - (1 / red_edge_1);
 }
