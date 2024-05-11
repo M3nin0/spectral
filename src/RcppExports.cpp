@@ -10,6 +10,91 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// nbr_op
+NumericVector nbr_op(NumericVector& nir, NumericVector& swir_2);
+RcppExport SEXP _spectral_nbr_op(SEXP nirSEXP, SEXP swir_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type nir(nirSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type swir_2(swir_2SEXP);
+    rcpp_result_gen = Rcpp::wrap(nbr_op(nir, swir_2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// nbr2_op
+NumericVector nbr2_op(NumericVector& swir_1, NumericVector& swir_2);
+RcppExport SEXP _spectral_nbr2_op(SEXP swir_1SEXP, SEXP swir_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type swir_1(swir_1SEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type swir_2(swir_2SEXP);
+    rcpp_result_gen = Rcpp::wrap(nbr2_op(swir_1, swir_2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// dpdd_op
+NumericVector dpdd_op(NumericVector& vv, NumericVector& vh);
+RcppExport SEXP _spectral_dpdd_op(SEXP vvSEXP, SEXP vhSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type vv(vvSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type vh(vhSEXP);
+    rcpp_result_gen = Rcpp::wrap(dpdd_op(vv, vh));
+    return rcpp_result_gen;
+END_RCPP
+}
+// dprvihh_op
+NumericVector dprvihh_op(NumericVector& hv, NumericVector& hh);
+RcppExport SEXP _spectral_dprvihh_op(SEXP hvSEXP, SEXP hhSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type hv(hvSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type hh(hhSEXP);
+    rcpp_result_gen = Rcpp::wrap(dprvihh_op(hv, hh));
+    return rcpp_result_gen;
+END_RCPP
+}
+// dprvivv_op
+NumericVector dprvivv_op(NumericVector& vv, NumericVector& vh);
+RcppExport SEXP _spectral_dprvivv_op(SEXP vvSEXP, SEXP vhSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type vv(vvSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type vh(vhSEXP);
+    rcpp_result_gen = Rcpp::wrap(dprvivv_op(vv, vh));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ndpoll_op
+NumericVector ndpoll_op(NumericVector& vv, NumericVector& vh);
+RcppExport SEXP _spectral_ndpoll_op(SEXP vvSEXP, SEXP vhSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type vv(vvSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type vh(vhSEXP);
+    rcpp_result_gen = Rcpp::wrap(ndpoll_op(vv, vh));
+    return rcpp_result_gen;
+END_RCPP
+}
+// qprvi_op
+NumericVector qprvi_op(NumericVector& vv, NumericVector& hv, NumericVector& hh);
+RcppExport SEXP _spectral_qprvi_op(SEXP vvSEXP, SEXP hvSEXP, SEXP hhSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector& >::type vv(vvSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type hv(hvSEXP);
+    Rcpp::traits::input_parameter< NumericVector& >::type hh(hhSEXP);
+    rcpp_result_gen = Rcpp::wrap(qprvi_op(vv, hv, hh));
+    return rcpp_result_gen;
+END_RCPP
+}
 // ndvi_op
 NumericVector ndvi_op(NumericVector& red, NumericVector& nir);
 RcppExport SEXP _spectral_ndvi_op(SEXP redSEXP, SEXP nirSEXP) {
@@ -72,6 +157,13 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_spectral_nbr_op", (DL_FUNC) &_spectral_nbr_op, 2},
+    {"_spectral_nbr2_op", (DL_FUNC) &_spectral_nbr2_op, 2},
+    {"_spectral_dpdd_op", (DL_FUNC) &_spectral_dpdd_op, 2},
+    {"_spectral_dprvihh_op", (DL_FUNC) &_spectral_dprvihh_op, 2},
+    {"_spectral_dprvivv_op", (DL_FUNC) &_spectral_dprvivv_op, 2},
+    {"_spectral_ndpoll_op", (DL_FUNC) &_spectral_ndpoll_op, 2},
+    {"_spectral_qprvi_op", (DL_FUNC) &_spectral_qprvi_op, 3},
     {"_spectral_ndvi_op", (DL_FUNC) &_spectral_ndvi_op, 2},
     {"_spectral_evi2_op", (DL_FUNC) &_spectral_evi2_op, 2},
     {"_spectral_bndvi_op", (DL_FUNC) &_spectral_bndvi_op, 2},
